@@ -239,18 +239,18 @@ footer {
 /* Events Section */
 .events-section {
   background-color: #ffffff;
-  padding: 65px 400px;
+  padding: 45px 400px;
 }
 
 .events-wrapper {
-  padding: 40px 40px;
+  padding: 20px 50px;
   margin: 0 auto;
 }
 
 .event-item {
   display: flex;
   gap: 50px;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .event-icon {
