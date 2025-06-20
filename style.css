@@ -12,7 +12,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: #131C26;
-  background-color: #FFF7EE;
+  background-color: #ffffff;
   margin: 0;
   padding: 0;
 }
@@ -27,9 +27,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 50px;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 40px;
 }
 
 .tight-nav a {
@@ -47,7 +47,7 @@ body {
 }
 
 .tight-nav a.active {
-  border-bottom: 3px solid #FFF7EE;
+  border-bottom: 3px solid #ffffff;
   flex-shrink: 0;
 }
 
@@ -69,9 +69,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background-color: #FFF7EE;
-  padding: 40px 20px;
-  gap: 40px;
+  background-color: #ffffff;
+  padding: 155px 300px;
+  gap: 70px;
   flex-wrap: wrap;
 }
 
@@ -122,7 +122,7 @@ footer {
   color: white;
   text-align: center;
   padding: 12px 0;
-  margin-top: 40px;
+  margin-top: 90px;
 }
 
 /* Gallery Section */
@@ -133,10 +133,8 @@ footer {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin: 0 auto;
-  /* Temporarily add border for debugging */
-  border: 1px solid red;
+  gap: 60px;
+  margin: 60px;
 }
 
 .gallery-item {
@@ -144,7 +142,7 @@ footer {
   /* Temporarily add border for debugging */
   background-color: #F7B3CC;
   color: #2E4057;
-  height: 160px;
+  height: 140px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,14 +152,14 @@ footer {
 
 /* About Us Section */
 .about-section {
-  background-color: #FFF7EE;
-  padding: 40px 20px;
+  background-color: #ffffff;
+  padding: 130px 400px;
 }
 
 .about-grid {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 60px;
   flex-wrap: wrap;
 }
 
@@ -193,18 +191,18 @@ footer {
 
 /* Events Section */
 .events-section {
-  background-color: #FFF7EE;
-  padding: 40px 0;
+  background-color: #ffffff;
+  padding: 80px 400px;
 }
 
 .events-wrapper {
-  padding: 40px 20px;
+  padding: 40px 40px;
   margin: 0 auto;
 }
 
 .event-item {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   margin-bottom: 40px;
 }
 
