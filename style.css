@@ -75,7 +75,7 @@ body {
   align-items: flex-start;
   background-color: #ffffff;
   padding: 133px 300px;
-  gap: 10px;
+  gap: 0;
   flex-wrap: wrap;
 }
 
@@ -192,7 +192,7 @@ footer {
 /* About Us Section */
 .about-section {
   background-color: #ffffff;
-  padding: 90px 400px;
+  padding: 57px 400px;
 }
 
 .about-grid {
@@ -249,7 +249,7 @@ footer {
 
 .event-item {
   display: flex;
-  gap: 50px;
+  gap: 70px;
   margin-bottom: 28px;
 }
 
