@@ -164,3 +164,47 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// === Subscribe Button Alert ===
+const subscribeBtn = document.getElementById('subscribeBtn');
+if (subscribeBtn) {
+    subscribeBtn.addEventListener('click', () => {
+        alert('Thank you for subscribing.');
+    });
+}
+
+// === Cart Functionality (Gallery Page) ===
+let cartItems = 0;
+
+const addToCartBtn = document.getElementById('addToCartBtn');
+const clearCartBtn = document.getElementById('clearCartBtn');
+const processOrderBtn = document.getElementById('processOrderBtn');
+
+if (addToCartBtn) {
+    addToCartBtn.addEventListener('click', () => {
+        cartItems++;
+        alert('Item added to the cart');
+    });
+}
+
+if (clearCartBtn) {
+    clearCartBtn.addEventListener('click', () => {
+        if (cartItems > 0) {
+            cartItems = 0;
+            alert('Cart cleared');
+        } else {
+            alert('No items to clear');
+        }
+    });
+}
+
+if (processOrderBtn) {
+    processOrderBtn.addEventListener('click', () => {
+        if (cartItems > 0) {
+            alert('Thank you for your order');
+            cartItems = 0;
+        } else {
+            alert('Cart is empty');
+        }
+    });
+}
