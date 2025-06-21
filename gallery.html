@@ -8,82 +8,91 @@
 </head>
 <body>
 
-  <header class="tight-header">
-    <nav class="tight-nav">
-      <div class="nav-left">
-        <a href="index.html">Homepage</a>
-        <a href="gallery.html" class="active">Gallery</a>
-      </div>
-      <div class="logo-box">
-        <img src="media/logo.png" alt="Book Haven Logo">
-      </div>
-      <div class="nav-right">
-        <a href="about.html">About Us</a>
-        <a href="events.html">Events</a>
-      </div>
-    </nav>
-  </header>
+<header class="tight-header">
+  <nav class="tight-nav">
+    <div class="nav-left">
+      <a href="index.html">Homepage</a>
+      <a href="gallery.html" class="active">Gallery</a>
+    </div>
+    <div class="logo-box">
+      <img src="media/logo.png" alt="Book Haven Logo">
+    </div>
+    <div class="nav-right">
+      <a href="about.html">About Us</a>
+      <a href="events.html">Events</a>
+    </div>
+  </nav>
+</header>
 
-  <main>
-    <div class="main-content">
-      <div class="gallery-section">
-        <div class="gallery-grid">
-  <div class="gallery-item-container">
-    <a href="#" class="gallery-item">
-      <img src="media/Client3_Book1.png" alt="Brie Mine 4Ever, a book for cheese lovers">
-    </a>
-    <h3 class="gallery-item-title">Brie Mine 4Ever, a book for cheese lovers</h3>
-  </div>
-  
-  <div class="gallery-item-container">
-    <a href="#" class="gallery-item">
-      <img src="media/Client3_Book2.png" alt="Glory Riders, a book about bikers">
-    </a>
-    <h3 class="gallery-item-title">Glory Riders, a book about bikers</h3>
-  </div>
-  
-  <div class="gallery-item-container">
-    <a href="#" class="gallery-item">
-      <img src="media/Client3_Book3.png" alt="Sorcerer’s Shadowed Chronicles, a fantasy book">
-    </a>
-    <h3 class="gallery-item-title">Sorcerer’s Shadowed Chronicles, a fantasy book</h3>
-  </div>
-  
-  <div class="gallery-item-container">
-    <a href="#" class="gallery-item">
-      <img src="media/Client3_Magazine1.png" alt="Ball, a magazine about pickleball">
-    </a>
-    <h3 class="gallery-item-title">Ball, a magazine about pickleball</h3>
-  </div>
-  
-  <div class="gallery-item-container">
-    <a href="#" class="gallery-item">
-      <img src="media/Client3_Magazine2.png" alt="Travel, a magazine for travelers">
-    </a>
-    <h3 class="gallery-item-title">Travel, a magazine for travelers</h3>
-  </div>
-  
-  <div class="gallery-item-container">
-    <a href="#" class="gallery-item">
-      <img src="media/Client3_Magazine3.png" alt="Eat., a magazine for foodies">
-    </a>
-    <h3 class="gallery-item-title">Eat., a magazine for foodies</h3>
-  </div>
-          <div class="cart-controls">
-            <button id="addToCartBtn" class="cta-button">Add to Cart</button>
-            <button id="clearCartBtn" class="cta-button">Clear Cart</button>
-            <button id="processOrderBtn" class="cta-button">Process Order</button>
-          </div>
-</div>
+<main>
+  <div class="main-content">
+    <div class="cart-wrapper">
+      <div class="cart-display">Cart Items: <span id="cartCount">0</span></div>
+      <div class="cart-controls">
+        <button id="clearCartBtn" class="cart-button">Clear Cart</button>
+        <button id="processOrderBtn" class="cart-button">Process Order</button>
       </div>
     </div>
 
-  </main>
+    <div class="gallery-section">
+      <div class="gallery-grid">
+        <div class="gallery-item-container">
+          <a href="#" class="gallery-item">
+            <img src="media/Client3_Book1.png" alt="Brie Mine 4Ever, a book for cheese lovers">
+          </a>
+          <h3 class="gallery-item-title">Brie Mine 4Ever</h3>
+          <button class="add-to-cart cart-button">Add to Cart</button>
+        </div>
 
-  <footer>
-    <p>&copy; 2025 Book Haven Bookstore. All rights reserved.</p>
-    <button id="subscribeBtn" class="cta-button">Subscribe</button>
-  </footer>
+        <div class="gallery-item-container">
+          <a href="#" class="gallery-item">
+            <img src="media/Client3_Book2.png" alt="Glory Riders, a book about bikers">
+          </a>
+          <h3 class="gallery-item-title">Glory Riders</h3>
+          <button class="add-to-cart cart-button">Add to Cart</button>
+        </div>
 
-  <script src="script.js"></script>
+        <div class="gallery-item-container">
+          <a href="#" class="gallery-item">
+            <img src="media/Client3_Book3.png" alt="Sorcerer’s Shadowed Chronicles, a fantasy book">
+          </a>
+          <h3 class="gallery-item-title">Sorcerer’s Shadowed Chronicles</h3>
+          <button class="add-to-cart cart-button">Add to Cart</button>
+        </div>
+
+        <div class="gallery-item-container">
+          <a href="#" class="gallery-item">
+            <img src="media/Client3_Magazine1.png" alt="Ball, a magazine about pickleball">
+          </a>
+          <h3 class="gallery-item-title">Ball Magazine</h3>
+          <button class="add-to-cart cart-button">Add to Cart</button>
+        </div>
+
+        <div class="gallery-item-container">
+          <a href="#" class="gallery-item">
+            <img src="media/Client3_Magazine2.png" alt="Travel, a magazine for travelers">
+          </a>
+          <h3 class="gallery-item-title">Travel Magazine</h3>
+          <button class="add-to-cart cart-button">Add to Cart</button>
+        </div>
+
+        <div class="gallery-item-container">
+          <a href="#" class="gallery-item">
+            <img src="media/Client3_Magazine3.png" alt="Eat., a magazine for foodies">
+          </a>
+          <h3 class="gallery-item-title">Eat. Magazine</h3>
+          <button class="add-to-cart cart-button">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Book Haven Bookstore. All rights reserved.</p>
+  <button id="subscribeBtn" class="cta-button">Subscribe</button>
+</footer>
+
+<script src="script.js"></script>
 </body>
+</html>

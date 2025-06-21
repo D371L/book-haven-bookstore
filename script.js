@@ -1,16 +1,15 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Burger menu functionality
+document.addEventListener('DOMContentLoaded', function () {
+    // === Burger menu functionality ===
     const burgerMenu = document.querySelector('.burger-menu');
     const navLinks = document.querySelector('.nav-links');
 
     if (burgerMenu && navLinks) {
-        burgerMenu.addEventListener('click', function() {
+        burgerMenu.addEventListener('click', function () {
             burgerMenu.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             if (!burgerMenu.contains(event.target) && !navLinks.contains(event.target)) {
                 burgerMenu.classList.remove('active');
                 navLinks.classList.remove('active');
@@ -18,74 +17,61 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth scrolling for navigation
+    // === Smooth scrolling ===
     document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href.startsWith('#')) {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             }
         });
     });
 
-    // Animation on scroll using Intersection Observer (modern approach)
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
+    // === Scroll animations ===
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    // Wait for images to load before observing elements
+    const animatedElements = document.querySelectorAll(
+        '.gallery-item-container, .about-photo, .event-item, .hero-section .image-box, .hero-section .text-box, .about-text, .events-wrapper'
+    );
+
     const images = document.querySelectorAll('img');
     let loadedImages = 0;
 
     const initializeAnimations = () => {
-        const animatedElements = document.querySelectorAll(
-            '.gallery-item-container, .about-photo, .event-item, .hero-section .image-box, .hero-section .text-box, .about-text, .events-wrapper'
-        );
-
-        animatedElements.forEach(el => {
-            observer.observe(el);
-        });
+        animatedElements.forEach(el => observer.observe(el));
     };
 
     const checkImagesLoaded = () => {
         loadedImages++;
         if (loadedImages === images.length) {
-            // All images loaded, now initialize animations
             setTimeout(initializeAnimations, 100);
         }
     };
 
-    // Check if images are already loaded or add load event listeners
     images.forEach(img => {
         if (img.complete) {
             checkImagesLoaded();
         } else {
             img.addEventListener('load', checkImagesLoaded);
-            img.addEventListener('error', checkImagesLoaded); // Handle broken images
+            img.addEventListener('error', checkImagesLoaded);
         }
     });
 
-    // If no images, initialize animations immediately
     if (images.length === 0) {
         initializeAnimations();
     }
 
-    // Interactive gallery with modal window
+    // === Modal for gallery ===
     const createModal = () => {
         const modal = document.createElement('div');
         modal.className = 'modal';
@@ -101,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
             justify-content: center;
             align-items: center;
         `;
-
         modal.innerHTML = `
             <div class="modal-content" style="position: relative; max-width: 90%; max-height: 90%; background: white; padding: 20px; border-radius: 8px;">
                 <span class="close-modal" style="position: absolute; top: 10px; right: 15px; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
@@ -117,13 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalImage = modal.querySelector('.modal-image');
     const modalDescription = modal.querySelector('.modal-description');
 
-    // Click handler for gallery images
     document.querySelectorAll('.gallery-item').forEach(item => {
         item.addEventListener('click', (e) => {
             e.preventDefault();
             const img = item.querySelector('img');
             const title = item.parentElement.querySelector('.gallery-item-title');
-
             if (img && title) {
                 modalImage.src = img.src;
                 modalImage.alt = img.alt;
@@ -133,7 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Modal window close handlers
     modal.querySelector('.close-modal').addEventListener('click', () => {
         modal.style.display = 'none';
     });
@@ -144,67 +126,70 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Contact form with validation (if exists)
+    // === Subscribe button alert ===
+    const subscribeBtn = document.getElementById('subscribeBtn');
+    if (subscribeBtn) {
+        subscribeBtn.addEventListener('click', () => {
+            alert('Thank you for subscribing.');
+        });
+    }
+
+    // === Cart functionality with visible count ===
+    let cartItems = 0;
+    const cartCount = document.getElementById('cartCount'); // make sure <span id="cartCount"> exists
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            cartItems++;
+            alert('Item added to the cart');
+            if (cartCount) cartCount.textContent = cartItems;
+        });
+    });
+
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    const processOrderBtn = document.getElementById('processOrderBtn');
+
+    if (clearCartBtn) {
+        clearCartBtn.addEventListener('click', () => {
+            if (cartItems > 0) {
+                cartItems = 0;
+                alert('Cart cleared');
+            } else {
+                alert('No items to clear');
+            }
+            if (cartCount) cartCount.textContent = cartItems;
+        });
+    }
+
+    if (processOrderBtn) {
+        processOrderBtn.addEventListener('click', () => {
+            if (cartItems > 0) {
+                alert('Thank you for your order');
+                cartItems = 0;
+            } else {
+                alert('Cart is empty');
+            }
+            if (cartCount) cartCount.textContent = cartItems;
+        });
+    }
+
+    // === Contact form validation ===
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const name = contactForm.querySelector('input[name="name"]').value;
-            const email = contactForm.querySelector('input[name="email"]').value;
-            const message = contactForm.querySelector('textarea[name="message"]').value;
+            const name = contactForm.querySelector('input[name="name"]').value.trim();
+            const email = contactForm.querySelector('input[name="email"]').value.trim();
+            const message = contactForm.querySelector('textarea[name="message"]').value.trim();
 
             if (!name || !email || !message) {
                 alert('Please fill in all fields');
                 return;
             }
 
-            alert('Thank you for your message! We will contact you soon.');
+            alert('Thank you for your message!');
             contactForm.reset();
         });
     }
 });
-
-// === Subscribe Button Alert ===
-const subscribeBtn = document.getElementById('subscribeBtn');
-if (subscribeBtn) {
-    subscribeBtn.addEventListener('click', () => {
-        alert('Thank you for subscribing.');
-    });
-}
-
-// === Cart Functionality (Gallery Page) ===
-let cartItems = 0;
-
-const addToCartBtn = document.getElementById('addToCartBtn');
-const clearCartBtn = document.getElementById('clearCartBtn');
-const processOrderBtn = document.getElementById('processOrderBtn');
-
-if (addToCartBtn) {
-    addToCartBtn.addEventListener('click', () => {
-        cartItems++;
-        alert('Item added to the cart');
-    });
-}
-
-if (clearCartBtn) {
-    clearCartBtn.addEventListener('click', () => {
-        if (cartItems > 0) {
-            cartItems = 0;
-            alert('Cart cleared');
-        } else {
-            alert('No items to clear');
-        }
-    });
-}
-
-if (processOrderBtn) {
-    processOrderBtn.addEventListener('click', () => {
-        if (cartItems > 0) {
-            alert('Thank you for your order');
-            cartItems = 0;
-        } else {
-            alert('Cart is empty');
-        }
-    });
-}
